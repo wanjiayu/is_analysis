@@ -1,0 +1,13 @@
+@startuml
+actor user
+user -> subject: 用户选择课程
+subject -> students: 查看所有学生列表
+students -> grade: 查看所有学生的成绩
+alt 如果user是老师
+    user -> test: 批改学生的成绩
+    user <- test: 所有学生的信息以及每个实验的成绩
+else 如果user是学生
+    user -> GitHubName: 修改个人的GitHub名称
+    user <- test: 个人的信息以及每个实验的成绩
+end
+@enduml

@@ -1,0 +1,53 @@
+@startuml
+class user {
+    <b>user_id</b>  用户ID
+    name  用户姓名
+    github_username  用户GitHub账号
+    password  用户密码
+}
+
+class teacher {
+    <b>teacher_id</b>  老师工号
+    <b>class</b>  班级
+    <b>subject_id</b>  老师教学的课程ID
+    department  老师所属部门  
+}
+
+class student {
+    <b>student_id</b>  学号
+    <b>class</b>  班级
+    <b>subject_id</b>  学生学习的课程ID
+    result_sum  总成绩
+}
+
+class class {
+    <b>class</b> 班级
+}
+
+class subject {
+    <b>subject_id</b>  课程ID
+    subject_name  课程名称
+}
+
+class grade {
+    <b>student_id</b>  学号
+    <b>test_id</b>  实验编号
+    result  分数
+    evaluate  评价
+    update_date  评改日期
+}
+
+class test {
+    <b>test_id</b>  实验编号
+    test_name  实验名称
+}
+
+teacher --|> user
+student --|> user
+class "1" -- "n" student
+class "n" -- "1" teacher
+subject "n" -- "n" student
+subject "n" -- "n" teacher
+student "1" -- "n"  grade
+test "1" -- "n"  grade
+@enduml

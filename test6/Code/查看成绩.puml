@@ -1,0 +1,6 @@
+@startuml
+actor student
+student -> grade: 查看成绩，评语以及批改时间
+grade -> test  :成绩对应的实验
+test --> student:返回每个实验的成绩，评语以及批改时间
+@enduml
